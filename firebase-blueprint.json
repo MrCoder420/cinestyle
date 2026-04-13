@@ -1,0 +1,39 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Stores user-specific settings and profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "The unique Firebase Auth UID" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string", "enum": ["user", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email"]
+    },
+    "wishlistItem": {
+      "title": "Wishlist Item",
+      "description": "An outfit saved to a user's moodboard",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "outfitId": { "type": "string" },
+        "addedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "outfitId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "User profile documents"
+    },
+    "/users/{userId}/wishlist/{itemId}": {
+      "schema": "wishlistItem",
+      "description": "User's saved outfits"
+    }
+  }
+}
