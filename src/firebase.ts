@@ -1,24 +1,20 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, User } from 'firebase/auth';
-import { getFirestore, doc, getDocFromServer } from 'firebase/firestore';
-import firebaseConfig from '../firebase-applet-config.json';
+
+// Truthlense-ai Firebase project — used for Google Authentication only
+const firebaseConfig = {
+  apiKey: "AIzaSyDk9n2NjGTaJIp1j2lyVu3BdnZccxHVTBA",
+  authDomain: "truthlense-ai.firebaseapp.com",
+  projectId: "truthlense-ai",
+  storageBucket: "truthlense-ai.firebasestorage.app",
+  messagingSenderId: "178931392843",
+  appId: "1:178931392843:web:f80e2406d0d1d075e588ce",
+  measurementId: "G-J0P624LR8R"
+};
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const db = getFirestore(app, firebaseConfig.firestoreDatabaseId);
 export const googleProvider = new GoogleAuthProvider();
-
-// Test connection to Firestore
-async function testConnection() {
-  try {
-    await getDocFromServer(doc(db, 'test', 'connection'));
-  } catch (error) {
-    if (error instanceof Error && error.message.includes('the client is offline')) {
-      console.error("Please check your Firebase configuration.");
-    }
-  }
-}
-testConnection();
 
 export { signInWithPopup, signOut, onAuthStateChanged };
 export type { User };
