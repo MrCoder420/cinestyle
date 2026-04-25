@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Menu, Search, Heart, ShoppingBag } from 'lucide-react';
+import { Menu, Search, Heart, ShoppingBag, Sparkles } from 'lucide-react';
 import { User } from '@supabase/supabase-js';
 import { useData } from '../context/DataContext';
 import { Screen } from '../types';
@@ -23,7 +23,10 @@ export function HomeScreen({ user, onNavigate }: HomeScreenProps) {
           <Menu className="w-6 h-6 text-primary cursor-pointer" />
           <h1 className="text-primary font-serif italic tracking-tighter text-3xl font-bold">CineStyle</h1>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 md:gap-6">
+          <button onClick={() => onNavigate('ai-stylist')} className="flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 md:px-4 md:py-2 rounded-full font-bold text-xs md:text-sm hover:bg-primary/20 transition-colors border border-primary/20">
+            <Sparkles className="w-4 h-4" /> <span className="hidden md:inline">AI Stylist</span>
+          </button>
           <Search 
             className="w-6 h-6 text-on-surface-variant cursor-pointer hover:text-primary transition-colors" 
             onClick={() => onNavigate('search')}

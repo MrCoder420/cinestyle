@@ -86,7 +86,8 @@ export function ProfileScreen({ user, onBack, onLogout, onNavigate }: { user: Su
     { icon: User, label: 'Account Settings' },
   ];
 
-  const isAdmin = !!user; // In a real app we'd check the user's role from the DB
+  // Only allow specific email(s) to access the Admin Panel
+  const isAdmin = user?.email === 'admin@cinestyle.com' || user?.email === 'mrcoder420@gmail.com';
 
   return (
     <motion.main {...PAGE_TRANSITION} className="pb-32">

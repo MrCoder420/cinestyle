@@ -1,4 +1,4 @@
-export type Screen = 'login' | 'home' | 'movie-detail' | 'character-detail' | 'product-detail' | 'search' | 'wishlist' | 'profile' | 'admin';
+export type Screen = 'login' | 'home' | 'movie-detail' | 'character-detail' | 'product-detail' | 'search' | 'wishlist' | 'profile' | 'admin' | 'ai-stylist';
 
 export interface Movie {
   id: string;

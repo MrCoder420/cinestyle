@@ -37,7 +37,7 @@ app.post('/api/ai-stylist', async (req, res) => {
     ).join('\n');
 
     // 2. Call Gemini API
-    const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const systemPrompt = `You are CineStyle, an elite fashion assistant. Based on the user's request and the following clothing catalog, recommend the most suitable outfits. 
     You must ONLY recommend items that exist in the catalog context below. 
     Return your response as a JSON array of outfit IDs that best match the query. ONLY output valid JSON. No markdown ticks, no extra text.

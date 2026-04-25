@@ -15,6 +15,7 @@ import { HomeScreen } from './components/HomeScreen';
 import { SearchScreen, WishlistScreen, ProfileScreen } from './components/Screens';
 import { MovieDetailScreen, CharacterDetailScreen, ProductDetailScreen } from './components/DetailScreens';
 import { AdminPanelScreen } from './components/AdminPanelScreen';
+import { AiStylistScreen } from './components/AiStylistScreen';
 
 export default function App() {
   const [user, setUser] = useState<SupabaseUser | null>(null);
@@ -72,7 +73,8 @@ export default function App() {
         {currentScreen === 'search' && <SearchScreen onNavigate={navigateTo} />}
         {currentScreen === 'wishlist' && <WishlistScreen onNavigate={navigateTo} />}
         {currentScreen === 'profile' && <ProfileScreen user={user} onBack={() => navigateTo('home')} onLogout={() => supabase.auth.signOut()} onNavigate={navigateTo} />}
-        {currentScreen === 'admin' && <AdminPanelScreen onBack={() => navigateTo('profile')} />}
+        {currentScreen === 'admin' && (user?.email === 'admin@cinestyle.com' || user?.email === 'mrcoder420@gmail.com') && <AdminPanelScreen onBack={() => navigateTo('profile')} />}
+        {currentScreen === 'ai-stylist' && <AiStylistScreen onBack={() => navigateTo('home')} onSelectOutfit={(o) => navigateTo('product-detail', o)} />}
       </AnimatePresence>
 
       {currentScreen !== 'login' && (
