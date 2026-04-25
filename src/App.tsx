@@ -73,7 +73,7 @@ export default function App() {
         {currentScreen === 'search' && <SearchScreen onNavigate={navigateTo} />}
         {currentScreen === 'wishlist' && <WishlistScreen onNavigate={navigateTo} />}
         {currentScreen === 'profile' && <ProfileScreen user={user} onBack={() => navigateTo('home')} onLogout={() => supabase.auth.signOut()} onNavigate={navigateTo} />}
-        {currentScreen === 'admin' && (user?.email === 'admin@cinestyle.com' || user?.email === 'mrcoder420@gmail.com') && <AdminPanelScreen onBack={() => navigateTo('profile')} />}
+        {currentScreen === 'admin' && (user?.email === 'admin@cinestyle.com' || user?.email === 'mrcoder420@gmail.com' || user?.email === 'nikhilbhor201@gmail.com') && <AdminPanelScreen onBack={() => navigateTo('profile')} />}
         {currentScreen === 'ai-stylist' && <AiStylistScreen onBack={() => navigateTo('home')} onSelectOutfit={(o) => navigateTo('product-detail', o)} />}
       </AnimatePresence>
 

@@ -87,7 +87,7 @@ export function ProfileScreen({ user, onBack, onLogout, onNavigate }: { user: Su
   ];
 
   // Only allow specific email(s) to access the Admin Panel
-  const isAdmin = user?.email === 'admin@cinestyle.com' || user?.email === 'mrcoder420@gmail.com';
+  const isAdmin = user?.email === 'admin@cinestyle.com' || user?.email === 'mrcoder420@gmail.com' || user?.email === 'nikhilbhor201@gmail.com';
 
   return (
     <motion.main {...PAGE_TRANSITION} className="pb-32">
@@ -99,7 +99,7 @@ export function ProfileScreen({ user, onBack, onLogout, onNavigate }: { user: Su
       <div className="px-6 -mt-12 flex flex-col items-center">
         <img src={user?.photoURL || ""} className="w-24 h-24 rounded-full border-4 border-surface shadow-xl mb-4" referrerPolicy="no-referrer" />
         <h2 className="text-2xl font-bold">{user?.displayName || "Guest"}</h2>
-        <p className="text-primary text-xs font-bold tracking-widest uppercase mt-1">Cinephile Elite</p>
+        <p className="text-primary text-xs font-bold tracking-widest mt-1">{user?.email || "No email found"}</p>
       </div>
       <div className="px-6 md:px-12 lg:px-24 mt-8 space-y-3 md:max-w-2xl md:mx-auto">
         {isAdmin && (
