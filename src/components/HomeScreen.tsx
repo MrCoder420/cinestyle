@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Menu, Search, Heart, ShoppingBag } from 'lucide-react';
-import { User as FirebaseUser } from '../firebase';
-import { MOVIES, CHARACTERS, OUTFITS } from '../constants';
+import { User } from '@supabase/supabase-js';
+import { useData } from '../context/DataContext';
 import { Screen } from '../types';
 import { PAGE_TRANSITION } from './Common';
 
 interface HomeScreenProps {
-  user: FirebaseUser | null;
+  user: User | null;
   onNavigate: (s: any, d?: any) => void;
 }
 
 export function HomeScreen({ user, onNavigate }: HomeScreenProps) {
+  const { movies, outfits } = useData();
   const filters = ['All', 'Trending', 'Bollywood', 'Hollywood', 'Classic Cinema', 'Red Carpet'];
   const [activeFilter, setActiveFilter] = useState('All');
   
   return (
     <motion.div {...PAGE_TRANSITION} className="pb-32">
-      <header className="bg-surface sticky top-0 z-50 flex justify-between items-center px-6 py-4">
+      <header className="bg-surface sticky top-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-24 py-4 xl:max-w-7xl xl:mx-auto">
         <div className="flex items-center gap-4">
           <Menu className="w-6 h-6 text-primary cursor-pointer" />
           <h1 className="text-primary font-serif italic tracking-tighter text-3xl font-bold">CineStyle</h1>
@@ -45,7 +46,7 @@ export function HomeScreen({ user, onNavigate }: HomeScreenProps) {
         </div>
       </header>
 
-      <div className="px-6 pt-4 overflow-x-auto no-scrollbar flex gap-3 mb-8">
+      <div className="px-6 md:px-12 lg:px-24 pt-4 overflow-x-auto no-scrollbar flex gap-3 mb-8 xl:max-w-7xl xl:mx-auto">
         {filters.map((f) => (
           <button 
             key={f}
@@ -59,13 +60,13 @@ export function HomeScreen({ user, onNavigate }: HomeScreenProps) {
         ))}
       </div>
 
-      <section className="mb-12">
-        <div className="px-6 flex justify-between items-end mb-4">
+      <section className="mb-12 xl:max-w-7xl xl:mx-auto">
+        <div className="px-6 md:px-12 lg:px-24 flex justify-between items-end mb-4">
           <h2 className="font-serif text-2xl text-on-surface font-bold tracking-tight">Trending</h2>
           <button onClick={() => onNavigate('search')} className="text-primary text-sm font-medium">View All</button>
         </div>
-        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 snap-x">
-          {MOVIES.map(movie => (
+        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 md:px-12 lg:px-24 snap-x">
+          {movies.map(movie => (
             <div key={movie.id} className="min-w-[180px] snap-start cursor-pointer active:scale-95 transition-transform" onClick={() => onNavigate('movie-detail', movie)}>
               <div className="aspect-[2/3] rounded-xl overflow-hidden mb-3 bg-surface-container">
                 <img alt={movie.title} className="w-full h-full object-cover" src={movie.posterUrl} referrerPolicy="no-referrer" />
@@ -76,10 +77,10 @@ export function HomeScreen({ user, onNavigate }: HomeScreenProps) {
         </div>
       </section>
 
-      <section className="px-6">
+      <section className="px-6 md:px-12 lg:px-24 xl:max-w-7xl xl:mx-auto">
         <h2 className="font-serif text-2xl text-on-surface font-bold tracking-tight mb-6">Trending Outfits</h2>
-        <div className="grid grid-cols-2 gap-4">
-          {OUTFITS.filter(o => activeFilter === 'All' || o.category.includes(activeFilter)).slice(0, 6).map((outfit, i) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {outfits.filter(o => activeFilter === 'All' || o.category.includes(activeFilter)).slice(0, 6).map((outfit, i) => (
             <div key={outfit.id} className={`flex flex-col gap-3 group cursor-pointer ${i % 2 === 1 ? 'mt-8' : ''}`} onClick={() => onNavigate('product-detail', outfit)}>
               <div className={`rounded-xl overflow-hidden bg-surface-container relative ${i % 2 === 0 ? 'h-[240px]' : 'h-[180px]'}`}>
                 <img alt={outfit.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={outfit.imageUrl} referrerPolicy="no-referrer" />

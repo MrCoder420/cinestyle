@@ -1,4 +1,4 @@
-export type Screen = 'login' | 'home' | 'movie-detail' | 'character-detail' | 'product-detail' | 'search' | 'wishlist' | 'profile';
+export type Screen = 'login' | 'home' | 'movie-detail' | 'character-detail' | 'product-detail' | 'search' | 'wishlist' | 'profile' | 'admin';
 
 export interface Movie {
   id: string;
@@ -11,7 +11,6 @@ export interface Movie {
 export interface Character {
   id: string;
   name: string;
-  actor: string;
   portraitUrl: string;
   movieId: string;
 }
@@ -19,10 +18,9 @@ export interface Character {
 export interface Outfit {
   id: string;
   name: string;
-  description: string;
   category: string;
   price: string;
   imageUrl: string;
   characterId: string;
-  buyLinks: { store: string; url: string }[];
+  link?: string;
 }

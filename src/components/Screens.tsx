@@ -14,24 +14,26 @@ import {
   Share2,
   Check,
   Sparkles,
-  ShoppingCart
+  ShoppingCart,
+  Settings
 } from 'lucide-react';
-import { User as FirebaseUser } from '../firebase';
-import { MOVIES, CHARACTERS, OUTFITS } from '../constants';
+import { useData } from '../context/DataContext';
+import { User as SupabaseUser } from '@supabase/supabase-js';
 import { Movie, Character, Outfit, Screen } from '../types';
 import { PAGE_TRANSITION, ScreenHeader } from './Common';
 
 // --- Search Screen ---
 export function SearchScreen({ onNavigate }: { onNavigate: (s: any, d?: any) => void }) {
+  const { outfits } = useData();
   const [query, setQuery] = useState('');
-  const filteredOutfits = OUTFITS.filter(o => 
+  const filteredOutfits = outfits.filter(o => 
     o.name.toLowerCase().includes(query.toLowerCase()) || 
     o.category.toLowerCase().includes(query.toLowerCase())
   );
 
   return (
     <motion.main {...PAGE_TRANSITION} className="pb-32">
-      <div className="sticky top-0 z-50 bg-surface px-6 py-4 space-y-4">
+      <div className="sticky top-0 z-50 bg-surface px-6 md:px-12 lg:px-24 py-4 space-y-4 xl:max-w-7xl xl:mx-auto">
         <div className="flex items-center gap-3 bg-surface-container-highest rounded-2xl px-4 py-3 border border-outline-variant/10">
           <SearchIcon className="w-5 h-5 text-on-surface-variant" />
           <input 
@@ -44,7 +46,7 @@ export function SearchScreen({ onNavigate }: { onNavigate: (s: any, d?: any) => 
           {query && <X className="w-5 h-5 text-on-surface-variant cursor-pointer" onClick={() => setQuery('')} />}
         </div>
       </div>
-      <div className="px-6 grid grid-cols-2 gap-4">
+      <div className="px-6 md:px-12 lg:px-24 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 xl:max-w-7xl xl:mx-auto">
         {filteredOutfits.map(outfit => (
           <div key={outfit.id} onClick={() => onNavigate('product-detail', outfit)} className="cursor-pointer">
             <div className="aspect-[3/4] rounded-xl overflow-hidden bg-surface-container mb-2">
@@ -63,7 +65,7 @@ export function WishlistScreen({ onNavigate }: { onNavigate: (s: any, d?: any) =
   return (
     <motion.main {...PAGE_TRANSITION} className="pb-32">
       <ScreenHeader title="Moodboard" />
-      <div className="px-6 py-8 text-center">
+      <div className="px-6 md:px-12 lg:px-24 py-8 md:py-24 text-center xl:max-w-7xl xl:mx-auto">
         <div className="w-20 h-20 bg-surface-container-highest rounded-full flex items-center justify-center mx-auto mb-4">
           <Heart className="w-8 h-8 text-primary/40" />
         </div>
@@ -76,7 +78,7 @@ export function WishlistScreen({ onNavigate }: { onNavigate: (s: any, d?: any) =
 }
 
 // --- Profile Screen ---
-export function ProfileScreen({ user, onBack, onLogout }: { user: FirebaseUser | null, onBack: () => void, onLogout: () => void }) {
+export function ProfileScreen({ user, onBack, onLogout, onNavigate }: { user: SupabaseUser | null, onBack: () => void, onLogout: () => void, onNavigate: (s: Screen) => void }) {
   const menuItems = [
     { icon: ShoppingBag, label: 'My Orders' },
     { icon: Heart, label: 'My Moodboard' },
@@ -84,9 +86,11 @@ export function ProfileScreen({ user, onBack, onLogout }: { user: FirebaseUser |
     { icon: User, label: 'Account Settings' },
   ];
 
+  const isAdmin = !!user; // In a real app we'd check the user's role from the DB
+
   return (
     <motion.main {...PAGE_TRANSITION} className="pb-32">
-      <div className="relative h-48 w-full">
+      <div className="relative h-48 md:h-72 lg:h-96 w-full">
         <img className="w-full h-full object-cover opacity-40" src="https://picsum.photos/seed/cinema/800/400" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-gradient-to-t from-surface to-transparent" />
         <button onClick={onBack} className="absolute top-6 left-6 w-10 h-10 bg-surface/40 backdrop-blur-md rounded-full flex items-center justify-center"><ArrowLeft className="w-5 h-5" /></button>
@@ -96,9 +100,22 @@ export function ProfileScreen({ user, onBack, onLogout }: { user: FirebaseUser |
         <h2 className="text-2xl font-bold">{user?.displayName || "Guest"}</h2>
         <p className="text-primary text-xs font-bold tracking-widest uppercase mt-1">Cinephile Elite</p>
       </div>
-      <div className="px-6 mt-8 space-y-3">
+      <div className="px-6 md:px-12 lg:px-24 mt-8 space-y-3 md:max-w-2xl md:mx-auto">
+        {isAdmin && (
+          <button onClick={() => onNavigate('admin')} className="w-full flex items-center justify-between p-4 mb-6 rounded-xl bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-colors">
+            <div className="flex items-center gap-4">
+              <Settings className="w-5 h-5 text-primary" />
+              <div className="text-left">
+                <span className="font-bold text-sm text-primary block">Admin Dashboard</span>
+                <span className="text-xs text-primary/70">Manage movies and outfits</span>
+              </div>
+            </div>
+            <ArrowRight className="w-4 h-4 text-primary" />
+          </button>
+        )}
+        
         {menuItems.map((item, i) => (
-          <button key={i} className="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-outline-variant/5">
+          <button key={i} className="w-full flex items-center justify-between p-4 rounded-xl bg-surface-container-low border border-outline-variant/5 hover:bg-surface-container transition-colors">
             <div className="flex items-center gap-4">
               <item.icon className="w-5 h-5 text-primary" />
               <span className="font-bold text-sm">{item.label}</span>
@@ -106,7 +123,7 @@ export function ProfileScreen({ user, onBack, onLogout }: { user: FirebaseUser |
             <ArrowRight className="w-4 h-4 opacity-20" />
           </button>
         ))}
-        <button onClick={onLogout} className="w-full mt-8 py-4 rounded-xl border border-error/20 text-error font-bold text-sm uppercase tracking-widest">Sign Out</button>
+        <button onClick={onLogout} className="w-full mt-8 py-4 rounded-xl border border-error/20 text-error font-bold text-sm uppercase tracking-widest hover:bg-error/10 transition-colors">Sign Out</button>
       </div>
     </motion.main>
   );

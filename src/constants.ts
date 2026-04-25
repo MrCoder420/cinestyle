@@ -2,366 +2,794 @@ import { Movie, Character, Outfit } from './types';
 
 export const MOVIES: Movie[] = [
   {
-    id: 'm1',
-    title: 'Dilwale Dulhania Le Jayenge',
-    genre: 'Romantic Drama',
-    year: '1995',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5b/DDLJ_poster.jpg',
+    "id": "m1",
+    "title": "Iron Man / Avengers",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/IronManAvengers/600/900"
   },
   {
-    id: 'm2',
-    title: 'Kabir Singh',
-    genre: 'Romantic Drama',
-    year: '2019',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/6/6b/Kabir_Singh_poster.jpg',
+    "id": "m2",
+    "title": "Spider-Man (MCU)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/SpiderManMCU/600/900"
   },
   {
-    id: 'm3',
-    title: 'Bajirao Mastani',
-    genre: 'Period Romance',
-    year: '2015',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/a/a5/Bajirao_Mastani_poster.jpg',
+    "id": "m3",
+    "title": "Harry Potter Series",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/HarryPotterSeries/600/900"
   },
   {
-    id: 'm4',
-    title: 'Dil Chahta Hai',
-    genre: 'Comedy Drama',
-    year: '2001',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/2/20/Dil_Chahta_Hai.jpg',
+    "id": "m4",
+    "title": "Joker (2019)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/Joker/600/900"
   },
   {
-    id: 'm5',
-    title: '3 Idiots',
-    genre: 'Comedy Drama',
-    year: '2009',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/d/df/3_idiots_poster.jpg',
+    "id": "m5",
+    "title": "Pirates of the Caribbean",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/PiratesoftheCaribbean/600/900"
   },
   {
-    id: 'm6',
-    title: 'Kuch Kuch Hota Hai',
-    genre: 'Romantic Drama',
-    year: '1998',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Kuch_Kuch_Hota_Hai_film_poster.jpg/220px-Kuch_Kuch_Hota_Hai_film_poster.jpg',
+    "id": "m6",
+    "title": "The Dark Knight / DC",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/TheDarkKnightDC/600/900"
   },
   {
-    id: 'm7',
-    title: 'Gully Boy',
-    genre: 'Musical Drama',
-    year: '2019',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/5/5d/Gully_Boy_poster.jpg',
+    "id": "m7",
+    "title": "Sherlock (BBC)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/SherlockBBC/600/900"
   },
   {
-    id: 'm8',
-    title: 'Jab We Met',
-    genre: 'Romantic Comedy',
-    year: '2007',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/7/73/Jab_We_Met_film_poster.jpg',
+    "id": "m8",
+    "title": "Wednesday (Netflix)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/WednesdayNetflix/600/900"
   },
   {
-    id: 'm9',
-    title: 'Devdas',
-    genre: 'Tragic Romance',
-    year: '2002',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/4/4b/Devdas_film_poster.jpg',
+    "id": "m9",
+    "title": "Thor / Avengers",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/ThorAvengers/600/900"
   },
   {
-    id: 'm10',
-    title: 'Queen',
-    genre: 'Drama',
-    year: '2014',
-    posterUrl: 'https://upload.wikimedia.org/wikipedia/en/2/2c/Queen_2014_Hindi_film_poster.jpg',
+    "id": "m10",
+    "title": "Black Widow / Avengers",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/BlackWidowAvengers/600/900"
   },
+  {
+    "id": "m11",
+    "title": "Frozen (Disney)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/FrozenDisney/600/900"
+  },
+  {
+    "id": "m12",
+    "title": "Deadpool (MCU/Fox)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/DeadpoolMCUFox/600/900"
+  },
+  {
+    "id": "m13",
+    "title": "3 Idiots (Bollywood)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/IdiotsBollywood/600/900"
+  },
+  {
+    "id": "m14",
+    "title": "Kabir Singh (Bollywood)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/KabirSinghBollywood/600/900"
+  },
+  {
+    "id": "m15",
+    "title": "Moana (Disney)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/MoanaDisney/600/900"
+  },
+  {
+    "id": "m16",
+    "title": "Don (Bollywood)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/DonBollywood/600/900"
+  },
+  {
+    "id": "m17",
+    "title": "The Hunger Games",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/TheHungerGames/600/900"
+  },
+  {
+    "id": "m18",
+    "title": "Crayon Shin-chan",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/CrayonShinchan/600/900"
+  },
+  {
+    "id": "m19",
+    "title": "Doraemon (Anime)",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/DoraemonAnime/600/900"
+  },
+  {
+    "id": "m20",
+    "title": "Raiders of the Lost Ark",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/RaidersoftheLostArk/600/900"
+  },
+  {
+    "id": "m21",
+    "title": "Indiana Jones",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/IndianaJones/600/900"
+  },
+  {
+    "id": "m22",
+    "title": "John Wick",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/JohnWick/600/900"
+  },
+  {
+    "id": "m23",
+    "title": "The Matrix",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/TheMatrix/600/900"
+  },
+  {
+    "id": "m24",
+    "title": "Harry Potter",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/HarryPotter/600/900"
+  },
+  {
+    "id": "m25",
+    "title": "Back to the Future",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/BacktotheFuture/600/900"
+  },
+  {
+    "id": "m26",
+    "title": "Iron Man",
+    "genre": "Various",
+    "year": "N/A",
+    "posterUrl": "https://picsum.photos/seed/IronMan/600/900"
+  }
 ];
 
 export const CHARACTERS: Character[] = [
-  // DDLJ
-  { id: 'c1', name: 'Raj Malhotra', actor: 'Shah Rukh Khan', movieId: 'm1', portraitUrl: 'https://picsum.photos/seed/raj-ddlj/400/400' },
-  { id: 'c2', name: 'Simran Singh', actor: 'Kajol', movieId: 'm1', portraitUrl: 'https://picsum.photos/seed/simran-ddlj/400/400' },
-
-  // Kabir Singh
-  { id: 'c3', name: 'Kabir Singh', actor: 'Shahid Kapoor', movieId: 'm2', portraitUrl: 'https://picsum.photos/seed/kabir-singh/400/400' },
-  { id: 'c4', name: 'Preeti Sikka', actor: 'Kiara Advani', movieId: 'm2', portraitUrl: 'https://picsum.photos/seed/preeti-kabir/400/400' },
-
-  // Bajirao Mastani
-  { id: 'c5', name: 'Mastani', actor: 'Deepika Padukone', movieId: 'm3', portraitUrl: 'https://picsum.photos/seed/mastani/400/400' },
-  { id: 'c6', name: 'Bajirao', actor: 'Ranveer Singh', movieId: 'm3', portraitUrl: 'https://picsum.photos/seed/bajirao/400/400' },
-
-  // Dil Chahta Hai
-  { id: 'c7', name: 'Akash', actor: 'Aamir Khan', movieId: 'm4', portraitUrl: 'https://picsum.photos/seed/akash-dch/400/400' },
-  { id: 'c8', name: 'Siddharth', actor: 'Akshaye Khanna', movieId: 'm4', portraitUrl: 'https://picsum.photos/seed/sidharth-dch/400/400' },
-
-  // 3 Idiots
-  { id: 'c9', name: 'Rancho (Phunsukh Wangdu)', actor: 'Aamir Khan', movieId: 'm5', portraitUrl: 'https://picsum.photos/seed/rancho/400/400' },
-  { id: 'c10', name: 'Farhan Qureshi', actor: 'R. Madhavan', movieId: 'm5', portraitUrl: 'https://picsum.photos/seed/farhan-idiots/400/400' },
-
-  // KKHH
-  { id: 'c11', name: 'Rahul Khanna', actor: 'Shah Rukh Khan', movieId: 'm6', portraitUrl: 'https://picsum.photos/seed/rahul-kkhh/400/400' },
-  { id: 'c12', name: 'Anjali', actor: 'Kajol', movieId: 'm6', portraitUrl: 'https://picsum.photos/seed/anjali-kkhh/400/400' },
-
-  // Gully Boy
-  { id: 'c13', name: 'Murad', actor: 'Ranveer Singh', movieId: 'm7', portraitUrl: 'https://picsum.photos/seed/murad-gully/400/400' },
-
-  // Jab We Met
-  { id: 'c14', name: 'Geet Dhillon', actor: 'Kareena Kapoor', movieId: 'm8', portraitUrl: 'https://picsum.photos/seed/geet-jwm/400/400' },
-  { id: 'c15', name: 'Aditya Kashyap', actor: 'Shahid Kapoor', movieId: 'm8', portraitUrl: 'https://picsum.photos/seed/aditya-jwm/400/400' },
-
-  // Devdas
-  { id: 'c16', name: 'Chandramukhi', actor: 'Madhuri Dixit', movieId: 'm9', portraitUrl: 'https://picsum.photos/seed/chandra-devdas/400/400' },
-  { id: 'c17', name: 'Paro', actor: 'Aishwarya Rai', movieId: 'm9', portraitUrl: 'https://picsum.photos/seed/paro-devdas/400/400' },
-
-  // Queen
-  { id: 'c18', name: 'Rani Mehra', actor: 'Kangana Ranaut', movieId: 'm10', portraitUrl: 'https://picsum.photos/seed/rani-queen/400/400' },
+  {
+    "id": "c1",
+    "name": "Tony Stark",
+    "portraitUrl": "https://picsum.photos/seed/TonyStark/400/400",
+    "movieId": "m1"
+  },
+  {
+    "id": "c2",
+    "name": "Peter Parker / Spider-Man",
+    "portraitUrl": "https://picsum.photos/seed/PeterParkerSpiderMan/400/400",
+    "movieId": "m2"
+  },
+  {
+    "id": "c3",
+    "name": "Harry Potter",
+    "portraitUrl": "https://picsum.photos/seed/HarryPotter/400/400",
+    "movieId": "m3"
+  },
+  {
+    "id": "c4",
+    "name": "Joker (Arthur Fleck)",
+    "portraitUrl": "https://picsum.photos/seed/JokerArthurFleck/400/400",
+    "movieId": "m4"
+  },
+  {
+    "id": "c5",
+    "name": "Captain Jack Sparrow",
+    "portraitUrl": "https://picsum.photos/seed/CaptainJackSparrow/400/400",
+    "movieId": "m5"
+  },
+  {
+    "id": "c6",
+    "name": "Bruce Wayne / Batman",
+    "portraitUrl": "https://picsum.photos/seed/BruceWayneBatman/400/400",
+    "movieId": "m6"
+  },
+  {
+    "id": "c7",
+    "name": "Sherlock Holmes",
+    "portraitUrl": "https://picsum.photos/seed/SherlockHolmes/400/400",
+    "movieId": "m7"
+  },
+  {
+    "id": "c8",
+    "name": "Wednesday Addams",
+    "portraitUrl": "https://picsum.photos/seed/WednesdayAddams/400/400",
+    "movieId": "m8"
+  },
+  {
+    "id": "c9",
+    "name": "Thor Odinson",
+    "portraitUrl": "https://picsum.photos/seed/ThorOdinson/400/400",
+    "movieId": "m9"
+  },
+  {
+    "id": "c10",
+    "name": "Hermione Granger",
+    "portraitUrl": "https://picsum.photos/seed/HermioneGranger/400/400",
+    "movieId": "m3"
+  },
+  {
+    "id": "c11",
+    "name": "Natasha Romanoff",
+    "portraitUrl": "https://picsum.photos/seed/NatashaRomanoff/400/400",
+    "movieId": "m10"
+  },
+  {
+    "id": "c12",
+    "name": "Elsa",
+    "portraitUrl": "https://picsum.photos/seed/Elsa/400/400",
+    "movieId": "m11"
+  },
+  {
+    "id": "c13",
+    "name": "Deadpool",
+    "portraitUrl": "https://picsum.photos/seed/Deadpool/400/400",
+    "movieId": "m12"
+  },
+  {
+    "id": "c14",
+    "name": "Rancho / Phunsukh Wangdu",
+    "portraitUrl": "https://picsum.photos/seed/RanchoPhunsukhWangdu/400/400",
+    "movieId": "m13"
+  },
+  {
+    "id": "c15",
+    "name": "Kabir Singh",
+    "portraitUrl": "https://picsum.photos/seed/KabirSingh/400/400",
+    "movieId": "m14"
+  },
+  {
+    "id": "c16",
+    "name": "Moana",
+    "portraitUrl": "https://picsum.photos/seed/Moana/400/400",
+    "movieId": "m15"
+  },
+  {
+    "id": "c17",
+    "name": "Don",
+    "portraitUrl": "https://picsum.photos/seed/Don/400/400",
+    "movieId": "m16"
+  },
+  {
+    "id": "c18",
+    "name": "Katniss Everdeen",
+    "portraitUrl": "https://picsum.photos/seed/KatnissEverdeen/400/400",
+    "movieId": "m17"
+  },
+  {
+    "id": "c19",
+    "name": "Shinchan",
+    "portraitUrl": "https://picsum.photos/seed/Shinchan/400/400",
+    "movieId": "m18"
+  },
+  {
+    "id": "c20",
+    "name": "Doraemon",
+    "portraitUrl": "https://picsum.photos/seed/Doraemon/400/400",
+    "movieId": "m19"
+  },
+  {
+    "id": "c21",
+    "name": "Indiana Jones",
+    "portraitUrl": "https://picsum.photos/seed/IndianaJones/400/400",
+    "movieId": "m20"
+  },
+  {
+    "id": "c22",
+    "name": "Indiana Jones",
+    "portraitUrl": "https://picsum.photos/seed/IndianaJones/400/400",
+    "movieId": "m21"
+  },
+  {
+    "id": "c23",
+    "name": "John Wick",
+    "portraitUrl": "https://picsum.photos/seed/JohnWick/400/400",
+    "movieId": "m22"
+  },
+  {
+    "id": "c24",
+    "name": "Neo",
+    "portraitUrl": "https://picsum.photos/seed/Neo/400/400",
+    "movieId": "m23"
+  },
+  {
+    "id": "c25",
+    "name": "Harry Potter",
+    "portraitUrl": "https://picsum.photos/seed/HarryPotter/400/400",
+    "movieId": "m24"
+  },
+  {
+    "id": "c26",
+    "name": "Marty McFly",
+    "portraitUrl": "https://picsum.photos/seed/MartyMcFly/400/400",
+    "movieId": "m25"
+  },
+  {
+    "id": "c27",
+    "name": "Tony Stark",
+    "portraitUrl": "https://picsum.photos/seed/TonyStark/400/400",
+    "movieId": "m26"
+  }
 ];
 
 export const OUTFITS: Outfit[] = [
-  // Raj Malhotra - DDLJ
   {
-    id: 'o1',
-    name: 'Raj\'s Iconic Leather Jacket',
-    description: 'The brown bomber leather jacket worn by Raj in DDLJ\'s iconic train scene. A timeless piece of Bollywood fashion.',
-    category: 'Bollywood',
-    price: '₹3,499',
-    imageUrl: 'https://picsum.photos/seed/raj-leather/600/800',
-    characterId: 'c1',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/jackets?rawQuery=men+brown+leather+jacket' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+brown+leather+jacket+bollywood+style' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/men-leather-jackets' },
-    ],
+    "id": "o1",
+    "name": "Arc Reactor T-Shirt",
+    "category": "T-Shirt",
+    "price": "₹299 – ₹799",
+    "imageUrl": "https://picsum.photos/seed/ArcReactorTShirt/600/800",
+    "characterId": "c1",
+    "link": "https://www.amazon.in/s?k=iron+man+arc+reactor+tshirt"
   },
   {
-    id: 'o2',
-    name: 'Raj\'s Mustard Sweater',
-    description: 'The classic cable-knit mustard yellow sweater Raj wears in the Swiss Alps — pure 90s Bollywood aesthetic.',
-    category: 'Bollywood',
-    price: '₹1,299',
-    imageUrl: 'https://picsum.photos/seed/raj-sweater/600/800',
-    characterId: 'c1',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/sweaters?rawQuery=men+mustard+cable+knit+sweater' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+yellow+mustard+knit+sweater' },
-    ],
-  },
-
-  // Simran - DDLJ
-  {
-    id: 'o3',
-    name: 'Simran\'s Mustard Salwar Suit',
-    description: 'The cheerful yellow salwar kameez Simran wears during the song "Tujhe Dekha To" — effortlessly feminine and graceful.',
-    category: 'Bollywood',
-    price: '₹2,199',
-    imageUrl: 'https://picsum.photos/seed/simran-salwar/600/800',
-    characterId: 'c2',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/salwar?rawQuery=women+yellow+salwar+kameez' },
-      { store: 'Utsav Fashion', url: 'https://www.utsavfashion.com/salwar-kameez/yellow' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=women+yellow+salwar+suit' },
-    ],
-  },
-
-  // Kabir Singh
-  {
-    id: 'o4',
-    name: 'Kabir\'s Blue Hoodie',
-    description: 'The iconic distressed blue hoodie worn by Kabir Singh throughout the film — a street-style staple.',
-    category: 'Bollywood',
-    price: '₹999',
-    imageUrl: 'https://picsum.photos/seed/kabir-hoodie/600/800',
-    characterId: 'c3',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/hoodies?rawQuery=men+blue+oversized+hoodie' },
-      { store: 'Spykar', url: 'https://www.spykar.com/collections/hoodies' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+blue+distressed+hoodie+kabir+singh+style' },
-    ],
+    "id": "o2",
+    "name": "Black Slim-Fit Suit Blazer",
+    "category": "Blazer",
+    "price": "₹999 – ₹3,499",
+    "imageUrl": "https://picsum.photos/seed/BlackSlimFitSuitBlazer/600/800",
+    "characterId": "c1",
+    "link": "https://www.amazon.in/s?k=black+slim+fit+blazer+men"
   },
   {
-    id: 'o5',
-    name: 'Kabir\'s White Kurta',
-    description: 'The plain white kurta worn by Kabir in emotional scenes — minimal, raw, and powerful.',
-    category: 'Bollywood',
-    price: '₹799',
-    imageUrl: 'https://picsum.photos/seed/kabir-kurta/600/800',
-    characterId: 'c3',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/kurtas?rawQuery=men+white+plain+kurta' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/mens-white-kurta' },
-      { store: 'Fabindia', url: 'https://www.fabindia.com/men/kurtas/white' },
-    ],
+    "id": "o3",
+    "name": "Spider-Man Cosplay Suit",
+    "category": "Cosplay",
+    "price": "₹499 – ₹2,499",
+    "imageUrl": "https://picsum.photos/seed/SpiderManCosplaySuit/600/800",
+    "characterId": "c2",
+    "link": "https://www.amazon.in/s?k=spiderman+costume+suit"
   },
-
-  // Mastani - Bajirao Mastani
   {
-    id: 'o6',
-    name: 'Mastani\'s Royal Lehenga',
-    description: 'Inspired by Mastani\'s grand lehenga from the "Deewani Mastani" sequence — regal, jewel-toned and heavily embroidered.',
-    category: 'Bollywood',
-    price: '₹8,999',
-    imageUrl: 'https://picsum.photos/seed/mastani-lehenga/600/800',
-    characterId: 'c5',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/lehenga-choli?rawQuery=royal+embroidered+lehenga+party+wear' },
-      { store: 'Pernia\'s Pop-Up', url: 'https://www.perniaspopupshop.com/lehengas' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=royal+bridal+lehenga+embroidered+heavy+work' },
-    ],
+    "id": "o4",
+    "name": "Plaid Hoodie (casual Peter)",
+    "category": "Hoodie",
+    "price": "₹399 – ₹999",
+    "imageUrl": "https://picsum.photos/seed/PlaidHoodiecasualPeter/600/800",
+    "characterId": "c2",
+    "link": "https://www.amazon.in/s?k=plaid+flannel+hoodie+men"
   },
-
-  // Bajirao
   {
-    id: 'o7',
-    name: 'Bajirao\'s Warrior Dhoti',
-    description: 'The bold Peshwai dhoti paired with a gold angvastram — a regal warrior look from Bajirao Mastani.',
-    category: 'Bollywood',
-    price: '₹2,499',
-    imageUrl: 'https://picsum.photos/seed/bajirao-dhoti/600/800',
-    characterId: 'c6',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/dhotis?rawQuery=men+traditional+dhoti+festive' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+maratha+dhoti+ethnic+wear' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/mens-dhoti' },
-    ],
+    "id": "o5",
+    "name": "Hogwarts Robe (Gryffindor)",
+    "category": "Costume Robe",
+    "price": "₹699 – ₹2,999",
+    "imageUrl": "https://picsum.photos/seed/HogwartsRobeGryffindor/600/800",
+    "characterId": "c3",
+    "link": "https://www.amazon.in/s?k=harry+potter+gryffindor+robe"
   },
-
-  // Akash - Dil Chahta Hai
   {
-    id: 'o8',
-    name: 'Akash\'s Printed Short Shirt',
-    description: 'The bold short-sleeve printed shirt Akash wears in Dil Chahta Hai — defining early 2000s Bollywood casual chic.',
-    category: 'Bollywood',
-    price: '₹899',
-    imageUrl: 'https://picsum.photos/seed/akash-shirt/600/800',
-    characterId: 'c7',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/shirts?rawQuery=men+printed+short+sleeve+casual+shirt' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/mens-printed-shirts' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+printed+casual+shirt+half+sleeve' },
-    ],
+    "id": "o6",
+    "name": "Round Frame Glasses",
+    "category": "Accessories",
+    "price": "₹149 – ₹499",
+    "imageUrl": "https://picsum.photos/seed/RoundFrameGlasses/600/800",
+    "characterId": "c3",
+    "link": "https://www.amazon.in/s?k=round+frame+black+glasses+men"
   },
-
-  // Siddharth - Dil Chahta Hai
   {
-    id: 'o9',
-    name: 'Siddharth\'s Linen Kurta',
-    description: 'The minimalist linen cotton kurta worn by the brooding artist Siddharth — effortlessly intellectual.',
-    category: 'Bollywood',
-    price: '₹1,099',
-    imageUrl: 'https://picsum.photos/seed/siddharth-kurta/600/800',
-    characterId: 'c8',
-    buyLinks: [
-      { store: 'Fabindia', url: 'https://www.fabindia.com/men/kurtas/linen' },
-      { store: 'Myntra', url: 'https://www.myntra.com/kurtas?rawQuery=men+linen+solid+kurta' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/mens-linen-kurta' },
-    ],
+    "id": "o7",
+    "name": "Red Suit Joker Costume",
+    "category": "Costume Suit",
+    "price": "₹999 – ₹3,999",
+    "imageUrl": "https://picsum.photos/seed/RedSuitJokerCostume/600/800",
+    "characterId": "c4",
+    "link": "https://www.amazon.in/s?k=joker+red+suit+costume"
   },
-
-  // Rancho - 3 Idiots
   {
-    id: 'o10',
-    name: 'Rancho\'s ICE College Uniform',
-    description: 'The classic white button-down college shirt with jeans combo — Rancho\'s simple genius look from 3 Idiots.',
-    category: 'Bollywood',
-    price: '₹599',
-    imageUrl: 'https://picsum.photos/seed/rancho-shirt/600/800',
-    characterId: 'c9',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/shirts?rawQuery=men+white+solid+casual+shirt' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+white+casual+shirt+college+style' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/mens-white-shirts' },
-    ],
+    "id": "o8",
+    "name": "Green Waistcoat Vest",
+    "category": "Vest",
+    "price": "₹399 – ₹1,299",
+    "imageUrl": "https://picsum.photos/seed/GreenWaistcoatVest/600/800",
+    "characterId": "c4",
+    "link": "https://www.amazon.in/s?k=green+waistcoat+vest+men"
   },
-
-  // Rahul KKHH
   {
-    id: 'o11',
-    name: 'Rahul\'s Sports Jersey',
-    description: 'The sporty college basketball jersey Rahul wears in Kuch Kuch Hota Hai — the original 90s college look.',
-    category: 'Bollywood',
-    price: '₹799',
-    imageUrl: 'https://picsum.photos/seed/rahul-jersey/600/800',
-    characterId: 'c11',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/sports-jersey?rawQuery=men+basketball+jersey+sporty' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=men+sports+basketball+jersey+90s+style' },
-      { store: 'Decathlon', url: 'https://www.decathlon.in/p/8394498/basketball/basketball-jersey' },
-    ],
+    "id": "o9",
+    "name": "Pirate Costume Set",
+    "category": "Costume",
+    "price": "₹799 – ₹2,999",
+    "imageUrl": "https://picsum.photos/seed/PirateCostumeSet/600/800",
+    "characterId": "c5",
+    "link": "https://www.amazon.in/s?k=jack+sparrow+pirate+costume"
   },
-
-  // Anjali KKHH
   {
-    id: 'o12',
-    name: 'Anjali\'s Dungarees & Headband',
-    description: 'The classic tomboy look — denim dungarees and a solid headband from Anjali\'s iconic college avatar.',
-    category: 'Bollywood',
-    price: '₹1,499',
-    imageUrl: 'https://picsum.photos/seed/anjali-dungaree/600/800',
-    characterId: 'c12',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/dungarees?rawQuery=women+denim+dungaree+casual' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/womens-dungaree' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=women+denim+dungaree+90s+style' },
-    ],
+    "id": "o10",
+    "name": "Tricorn Pirate Hat",
+    "category": "Hat",
+    "price": "₹199 – ₹799",
+    "imageUrl": "https://picsum.photos/seed/TricornPirateHat/600/800",
+    "characterId": "c5",
+    "link": "https://www.amazon.in/s?k=tricorn+pirate+hat"
   },
-
-  // Murad - Gully Boy
   {
-    id: 'o13',
-    name: 'Murad\'s Streetwear Fit',
-    description: 'Graphic tee, baggy cargo pants and a snapback cap — Murad\'s raw Dharavi street style from Gully Boy.',
-    category: 'Bollywood',
-    price: '₹1,899',
-    imageUrl: 'https://picsum.photos/seed/murad-street/600/800',
-    characterId: 'c13',
-    buyLinks: [
-      { store: 'The Souled Store', url: 'https://www.thesouledstore.com/collections/urban-streetwear' },
-      { store: 'Myntra', url: 'https://www.myntra.com/cargo-trousers?rawQuery=men+baggy+cargo+pants+streetwear' },
-      { store: 'Bewakoof', url: 'https://www.bewakoof.com/mens-graphic-t-shirts' },
-    ],
+    "id": "o11",
+    "name": "Batman Cosplay Suit",
+    "category": "Cosplay",
+    "price": "₹699 – ₹3,499",
+    "imageUrl": "https://picsum.photos/seed/BatmanCosplaySuit/600/800",
+    "characterId": "c6",
+    "link": "https://www.amazon.in/s?k=batman+cosplay+suit+costume"
   },
-
-  // Geet - Jab We Met
   {
-    id: 'o14',
-    name: 'Geet\'s Pink Salwar Suit',
-    description: 'The bubbly pink salwar kameez worn by Geet in Jab We Met — joyful, colourful Punjabi girl energy.',
-    category: 'Bollywood',
-    price: '₹1,799',
-    imageUrl: 'https://picsum.photos/seed/geet-pink/600/800',
-    characterId: 'c14',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/salwar?rawQuery=women+pink+salwar+kameez+casual' },
-      { store: 'Utsav Fashion', url: 'https://www.utsavfashion.com/salwar-kameez/pink' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=women+pink+punjabi+salwar+kameez' },
-    ],
+    "id": "o12",
+    "name": "Black Tactical Turtleneck",
+    "category": "Top",
+    "price": "₹349 – ₹1,199",
+    "imageUrl": "https://picsum.photos/seed/BlackTacticalTurtleneck/600/800",
+    "characterId": "c6",
+    "link": "https://www.amazon.in/s?k=black+turtleneck+men"
   },
-
-  // Chandramukhi - Devdas
   {
-    id: 'o15',
-    name: 'Chandramukhi\'s Silk Saree',
-    description: 'The rich red and gold silk saree Chandramukhi wears in Devdas — dramatic, graceful, and unforgettable.',
-    category: 'Bollywood',
-    price: '₹5,999',
-    imageUrl: 'https://picsum.photos/seed/chandramukhi-saree/600/800',
-    characterId: 'c16',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/sarees?rawQuery=women+red+silk+saree+wedding+heavy' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=women+red+silk+saree+gold+border' },
-      { store: 'Nalli Silks', url: 'https://www.nalli.com/sarees/silk-sarees/red' },
-    ],
+    "id": "o13",
+    "name": "Wool Overcoat Long",
+    "category": "Coat",
+    "price": "₹1,499 – ₹5,999",
+    "imageUrl": "https://picsum.photos/seed/WoolOvercoatLong/600/800",
+    "characterId": "c7",
+    "link": "https://www.amazon.in/s?k=long+wool+overcoat+men+detective"
   },
-
-  // Rani - Queen
   {
-    id: 'o16',
-    name: 'Rani\'s Quirky Floral Kurti',
-    description: 'The sweet, modest floral kurti Rani wears at the start of Queen — a small-town girl\'s charm in full bloom.',
-    category: 'Bollywood',
-    price: '₹699',
-    imageUrl: 'https://picsum.photos/seed/rani-kurti/600/800',
-    characterId: 'c18',
-    buyLinks: [
-      { store: 'Myntra', url: 'https://www.myntra.com/kurtis?rawQuery=women+floral+print+kurti+casual' },
-      { store: 'Amazon', url: 'https://www.amazon.in/s?k=women+floral+kurti+casual+ethnic' },
-      { store: 'Ajio', url: 'https://www.ajio.com/s/womens-floral-kurti' },
-    ],
+    "id": "o14",
+    "name": "Blue Slim Fit Dress Shirt",
+    "category": "Shirt",
+    "price": "₹399 – ₹1,499",
+    "imageUrl": "https://picsum.photos/seed/BlueSlimFitDressShirt/600/800",
+    "characterId": "c7",
+    "link": "https://www.amazon.in/s?k=blue+slim+fit+formal+shirt+men"
   },
+  {
+    "id": "o15",
+    "name": "Black Goth School Dress",
+    "category": "Dress",
+    "price": "₹499 – ₹1,999",
+    "imageUrl": "https://picsum.photos/seed/BlackGothSchoolDress/600/800",
+    "characterId": "c8",
+    "link": "https://www.amazon.in/s?k=wednesday+addams+black+dress+costume"
+  },
+  {
+    "id": "o16",
+    "name": "Black Platform Oxford Shoes",
+    "category": "Footwear",
+    "price": "₹599 – ₹2,499",
+    "imageUrl": "https://picsum.photos/seed/BlackPlatformOxfordShoes/600/800",
+    "characterId": "c8",
+    "link": "https://www.amazon.in/s?k=black+platform+oxford+shoes+women"
+  },
+  {
+    "id": "o17",
+    "name": "Thor Cosplay Costume (with cape)",
+    "category": "Cosplay",
+    "price": "₹699 – ₹2,999",
+    "imageUrl": "https://picsum.photos/seed/ThorCosplayCostumewithcape/600/800",
+    "characterId": "c9",
+    "link": "https://www.amazon.in/s?k=thor+costume+cape+avengers"
+  },
+  {
+    "id": "o18",
+    "name": "Red Cape / Superhero Cape",
+    "category": "Accessories",
+    "price": "₹199 – ₹699",
+    "imageUrl": "https://picsum.photos/seed/RedCapeSuperheroCape/600/800",
+    "characterId": "c9",
+    "link": "https://www.amazon.in/s?k=red+superhero+cape+adult"
+  },
+  {
+    "id": "o19",
+    "name": "Hogwarts Gryffindor Uniform Set",
+    "category": "Costume",
+    "price": "₹799 – ₹2,999",
+    "imageUrl": "https://picsum.photos/seed/HogwartsGryffindorUniformSet/600/800",
+    "characterId": "c10",
+    "link": "https://www.amazon.in/s?k=hermione+granger+costume+hogwarts"
+  },
+  {
+    "id": "o20",
+    "name": "Black Tactical Jumpsuit",
+    "category": "Jumpsuit",
+    "price": "₹699 – ₹2,499",
+    "imageUrl": "https://picsum.photos/seed/BlackTacticalJumpsuit/600/800",
+    "characterId": "c11",
+    "link": "https://www.amazon.in/s?k=black+tactical+jumpsuit+women"
+  },
+  {
+    "id": "o21",
+    "name": "Red Leather Belt",
+    "category": "Accessories",
+    "price": "₹149 – ₹599",
+    "imageUrl": "https://picsum.photos/seed/RedLeatherBelt/600/800",
+    "characterId": "c11",
+    "link": "https://www.amazon.in/s?k=red+wide+belt+women"
+  },
+  {
+    "id": "o22",
+    "name": "Ice Blue Shimmer Gown",
+    "category": "Dress / Gown",
+    "price": "₹499 – ₹2,499",
+    "imageUrl": "https://picsum.photos/seed/IceBlueShimmerGown/600/800",
+    "characterId": "c12",
+    "link": "https://www.amazon.in/s?k=elsa+frozen+blue+gown+costume"
+  },
+  {
+    "id": "o23",
+    "name": "Deadpool Red & Black Cosplay Suit",
+    "category": "Cosplay",
+    "price": "₹799 – ₹3,499",
+    "imageUrl": "https://picsum.photos/seed/DeadpoolRedBlackCosplaySuit/600/800",
+    "characterId": "c13",
+    "link": "https://www.amazon.in/s?k=deadpool+costume+suit"
+  },
+  {
+    "id": "o24",
+    "name": "Deadpool Graphic T-Shirt",
+    "category": "T-Shirt",
+    "price": "₹249 – ₹799",
+    "imageUrl": "https://picsum.photos/seed/DeadpoolGraphicTShirt/600/800",
+    "characterId": "c13",
+    "link": "https://www.amazon.in/s?k=deadpool+graphic+tshirt"
+  },
+  {
+    "id": "o25",
+    "name": "White College Shirt",
+    "category": "Shirt",
+    "price": "₹249 – ₹799",
+    "imageUrl": "https://picsum.photos/seed/WhiteCollegeShirt/600/800",
+    "characterId": "c14",
+    "link": "https://www.amazon.in/s?k=white+college+shirt+men"
+  },
+  {
+    "id": "o26",
+    "name": "Light Blue Denim Jeans",
+    "category": "Jeans",
+    "price": "₹349 – ₹1,499",
+    "imageUrl": "https://picsum.photos/seed/LightBlueDenimJeans/600/800",
+    "characterId": "c14",
+    "link": "https://www.amazon.in/s?k=light+blue+slim+jeans+men"
+  },
+  {
+    "id": "o27",
+    "name": "White Kurta Pyjama Set",
+    "category": "Ethnic Wear",
+    "price": "₹499 – ₹2,999",
+    "imageUrl": "https://picsum.photos/seed/WhiteKurtaPyjamaSet/600/800",
+    "characterId": "c15",
+    "link": "https://www.amazon.in/s?k=white+kurta+pyjama+set+men"
+  },
+  {
+    "id": "o28",
+    "name": "Black Leather Biker Jacket",
+    "category": "Jacket",
+    "price": "₹799 – ₹3,999",
+    "imageUrl": "https://picsum.photos/seed/BlackLeatherBikerJacket/600/800",
+    "characterId": "c15",
+    "link": "https://www.amazon.in/s?k=black+leather+biker+jacket+men"
+  },
+  {
+    "id": "o29",
+    "name": "Polynesian Sarong / Pareo Set",
+    "category": "Costume",
+    "price": "₹399 – ₹1,999",
+    "imageUrl": "https://picsum.photos/seed/PolynesianSarongPareoSet/600/800",
+    "characterId": "c16",
+    "link": "https://www.amazon.in/s?k=moana+costume+dress"
+  },
+  {
+    "id": "o30",
+    "name": "White 3-Piece Suit",
+    "category": "Suit",
+    "price": "₹1,999 – ₹6,999",
+    "imageUrl": "https://picsum.photos/seed/WhitePieceSuit/600/800",
+    "characterId": "c17",
+    "link": "https://www.amazon.in/s?k=white+3+piece+suit+men"
+  },
+  {
+    "id": "o31",
+    "name": "Black Slim-Fit Tuxedo",
+    "category": "Suit",
+    "price": "₹2,499 – ₹8,999",
+    "imageUrl": "https://picsum.photos/seed/BlackSlimFitTuxedo/600/800",
+    "characterId": "c17",
+    "link": "https://www.amazon.in/s?k=black+slim+fit+tuxedo+men"
+  },
+  {
+    "id": "o32",
+    "name": "Mockingjay Black Combat Suit",
+    "category": "Cosplay",
+    "price": "₹699 – ₹2,999",
+    "imageUrl": "https://picsum.photos/seed/MockingjayBlackCombatSuit/600/800",
+    "characterId": "c18",
+    "link": "https://www.amazon.in/s?k=katniss+everdeen+costume+hunger+games"
+  },
+  {
+    "id": "o33",
+    "name": "Tactical Cargo Pants Women",
+    "category": "Pants",
+    "price": "₹399 – ₹1,499",
+    "imageUrl": "https://picsum.photos/seed/TacticalCargoPantsWomen/600/800",
+    "characterId": "c18",
+    "link": "https://www.amazon.in/s?k=cargo+pants+women+tactical"
+  },
+  {
+    "id": "o34",
+    "name": "Red T-Shirt (Shinchan cosplay)",
+    "category": "T-Shirt",
+    "price": "₹199 – ₹599",
+    "imageUrl": "https://picsum.photos/seed/RedTShirtShinchancosplay/600/800",
+    "characterId": "c19",
+    "link": "https://www.amazon.in/s?k=shinchan+red+tshirt+cosplay"
+  },
+  {
+    "id": "o35",
+    "name": "Shinchan Graphic Hoodie",
+    "category": "Hoodie",
+    "price": "₹349 – ₹1,199",
+    "imageUrl": "https://picsum.photos/seed/ShinchanGraphicHoodie/600/800",
+    "characterId": "c19",
+    "link": "https://www.amazon.in/s?k=shinchan+hoodie+graphic"
+  },
+  {
+    "id": "o36",
+    "name": "Doraemon Blue Costume / Onesie",
+    "category": "Costume",
+    "price": "₹499 – ₹1,999",
+    "imageUrl": "https://picsum.photos/seed/DoraemonBlueCostumeOnesie/600/800",
+    "characterId": "c20",
+    "link": "https://www.amazon.in/s?k=doraemon+costume+onesie"
+  },
+  {
+    "id": "o37",
+    "name": "Doraemon Graphic T-Shirt",
+    "category": "T-Shirt",
+    "price": "₹199 – ₹699",
+    "imageUrl": "https://picsum.photos/seed/DoraemonGraphicTShirt/600/800",
+    "characterId": "c20",
+    "link": "https://www.amazon.in/s?k=doraemon+graphic+tshirt"
+  },
+  {
+    "id": "o38",
+    "name": "Brown Distressed Leather Jacket",
+    "category": "Jacket",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/BrownDistressedLeatherJacket/600/800",
+    "characterId": "c21",
+    "link": "https://www.amazon.in/Indiana-Jones-Vintage-Distressed-Brown-Harrison/dp/B09KMGZCYJ"
+  },
+  {
+    "id": "o39",
+    "name": "Brown Bomber Leather Jacket",
+    "category": "Jacket",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/BrownBomberLeatherJacket/600/800",
+    "characterId": "c22",
+    "link": "https://www.amazon.in/Raiders-Indiana-Harrison-Bomber-Leather/dp/B09HMHK94P"
+  },
+  {
+    "id": "o40",
+    "name": "White Pirate / Poet Shirt",
+    "category": "Shirt",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/WhitePiratePoetShirt/600/800",
+    "characterId": "c5",
+    "link": "Search \"pirate shirt\" or use: https://www.amazon.in/s?k=jack+sparrow+shirt (many white poet shirts available)"
+  },
+  {
+    "id": "o41",
+    "name": "Shirt + Vest + Pants Combo",
+    "category": "Full Set",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/ShirtVestPantsCombo/600/800",
+    "characterId": "c5",
+    "link": "https://www.amazon.in/s?k=captain+jack+sparrow+costume"
+  },
+  {
+    "id": "o42",
+    "name": "Black Leather Jacket (Shirt Collar)",
+    "category": "Jacket",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/BlackLeatherJacketShirtCollar/600/800",
+    "characterId": "c23",
+    "link": "https://www.amazon.in/ORVIX-Classic-Collar-Leather-Jacket/dp/B0FXS2CFKM"
+  },
+  {
+    "id": "o43",
+    "name": "Black Gothic Trench Coat (Cotton)",
+    "category": "Jacket/Coat",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/BlackGothicTrenchCoatCotton/600/800",
+    "characterId": "c24",
+    "link": "https://www.amazon.in/UGFashions-Matrix-Costume-Gothic-Steampunk/dp/B0B5L4BKZP"
+  },
+  {
+    "id": "o44",
+    "name": "Black Gothic Trench Coat (Heavy Cotton)",
+    "category": "Jacket/Coat",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/BlackGothicTrenchCoatHeavyCotton/600/800",
+    "characterId": "c24",
+    "link": "https://www.amazon.in/Matrix-Cotton-Reeves-Gothic-Cosplay/dp/B09KR2VKL8"
+  },
+  {
+    "id": "o45",
+    "name": "Gryffindor Black Cotton Hoodie (Top)",
+    "category": "Shirt/Hoodie",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/GryffindorBlackCottonHoodieTop/600/800",
+    "characterId": "c25",
+    "link": "https://www.amazon.in/Potter-Cotton-Gryffindor-Sweatshirt-Hoodies/dp/B0DRVXMC5J"
+  },
+  {
+    "id": "o46",
+    "name": "Denim Jacket + Red Puffer Vest Combo",
+    "category": "Jacket",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/DenimJacketRedPufferVestCombo/600/800",
+    "characterId": "c26",
+    "link": "Search \"Marty McFly costume\" â many include denim jacket + red vest"
+  },
+  {
+    "id": "o47",
+    "name": "Checkered Shirt (part of costume)",
+    "category": "Shirt",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/CheckeredShirtpartofcostume/600/800",
+    "characterId": "c26",
+    "link": "https://www.amazon.in/s?k=marty+mcfly+costume (most bundles include the shirt)"
+  },
+  {
+    "id": "o48",
+    "name": "Arc Reactor / Stark Printed T-Shirt",
+    "category": "Shirt",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/ArcReactorStarkPrintedTShirt/600/800",
+    "characterId": "c1",
+    "link": "https://www.amazon.in/s?k=tony+stark+t+shirt (The Souled Store versions are good)"
+  },
+  {
+    "id": "o49",
+    "name": "Black Hoodie Style",
+    "category": "Hoodie",
+    "price": "N/A",
+    "imageUrl": "https://picsum.photos/seed/BlackHoodieStyle/600/800",
+    "characterId": "c27",
+    "link": "https://www.amazon.in/s?k=tony+stark+hoodie"
+  }
 ];

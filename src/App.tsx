@@ -6,16 +6,18 @@ import {
   Heart, 
   User, 
 } from 'lucide-react';
-import { auth, googleProvider, signInWithPopup, signOut, onAuthStateChanged, User as FirebaseUser } from './firebase';
+import { User as SupabaseUser } from '@supabase/supabase-js';
+import { supabase } from './supabaseClient';
 import { Movie, Character, Outfit, Screen } from './types';
 import { LoadingSpinner } from './components/Common';
 import { LoginScreen } from './components/LoginScreen';
 import { HomeScreen } from './components/HomeScreen';
 import { SearchScreen, WishlistScreen, ProfileScreen } from './components/Screens';
 import { MovieDetailScreen, CharacterDetailScreen, ProductDetailScreen } from './components/DetailScreens';
+import { AdminPanelScreen } from './components/AdminPanelScreen';
 
 export default function App() {
-  const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [user, setUser] = useState<SupabaseUser | null>(null);
   const [isAuthReady, setIsAuthReady] = useState(false);
   const [currentScreen, setCurrentScreen] = useState<Screen>('login');
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
@@ -23,16 +25,24 @@ export default function App() {
   const [selectedOutfit, setSelectedOutfit] = useState<Outfit | null>(null);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user || null);
       setIsAuthReady(true);
-      if (currentUser) {
+      if (session?.user && currentScreen === 'login') {
+        setCurrentScreen('home');
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user || null);
+      if (session?.user) {
         if (currentScreen === 'login') setCurrentScreen('home');
       } else {
         setCurrentScreen('login');
       }
     });
-    return () => unsubscribe();
+
+    return () => subscription.unsubscribe();
   }, [currentScreen]);
 
   const navigateTo = (screen: Screen, data?: any) => {
@@ -48,7 +58,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-surface text-on-surface selection:bg-primary/30">
       <AnimatePresence mode="wait">
-        {currentScreen === 'login' && <LoginScreen onLogin={() => signInWithPopup(auth, googleProvider)} />}
+        {currentScreen === 'login' && <LoginScreen onLoginSuccess={() => navigateTo('home')} />}
         {currentScreen === 'home' && <HomeScreen user={user} onNavigate={navigateTo} />}
         {currentScreen === 'movie-detail' && selectedMovie && (
           <MovieDetailScreen movie={selectedMovie} onBack={() => navigateTo('home')} onSelectCharacter={(c) => navigateTo('character-detail', c)} />
@@ -61,7 +71,8 @@ export default function App() {
         )}
         {currentScreen === 'search' && <SearchScreen onNavigate={navigateTo} />}
         {currentScreen === 'wishlist' && <WishlistScreen onNavigate={navigateTo} />}
-        {currentScreen === 'profile' && <ProfileScreen user={user} onBack={() => navigateTo('home')} onLogout={() => signOut(auth)} />}
+        {currentScreen === 'profile' && <ProfileScreen user={user} onBack={() => navigateTo('home')} onLogout={() => supabase.auth.signOut()} onNavigate={navigateTo} />}
+        {currentScreen === 'admin' && <AdminPanelScreen onBack={() => navigateTo('profile')} />}
       </AnimatePresence>
 
       {currentScreen !== 'login' && (
