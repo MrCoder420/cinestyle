@@ -8,6 +8,8 @@ interface DataContextType {
   outfits: Outfit[];
   loading: boolean;
   error: string | null;
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
 }
 
 const DataContext = createContext<DataContextType>({
@@ -16,6 +18,8 @@ const DataContext = createContext<DataContextType>({
   outfits: [],
   loading: true,
   error: null,
+  theme: 'dark',
+  toggleTheme: () => {},
 });
 
 export const useData = () => useContext(DataContext);
@@ -26,6 +30,23 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [outfits, setOutfits] = useState<Outfit[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return (localStorage.getItem('theme') as 'dark' | 'light') || 'dark';
+  });
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.classList.remove('light');
+    }
+  }, [theme]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -79,7 +100,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   }, []);
 
   return (
-    <DataContext.Provider value={{ movies, characters, outfits, loading, error }}>
+    <DataContext.Provider value={{ movies, characters, outfits, loading, error, theme, toggleTheme }}>
       {children}
     </DataContext.Provider>
   );

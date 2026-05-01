@@ -8,11 +8,12 @@ import {
   ShoppingCart,
   Plus,
   ShoppingBag,
-  Heart
+  Heart,
+  Scissors
 } from 'lucide-react';
 import { useData } from '../context/DataContext';
-import { Movie, Character, Outfit, Screen } from '../types';
-import { PAGE_TRANSITION, ScreenHeader } from './Common';
+import { Movie, Character, Outfit } from '../types';
+import { PAGE_TRANSITION, ScreenHeader, FakeAdBanner } from './Common';
 
 export function MovieDetailScreen({ movie, onBack, onSelectCharacter }: { movie: Movie, onBack: () => void, onSelectCharacter: (c: Character) => void }) {
   const { characters: allCharacters } = useData();
@@ -31,7 +32,7 @@ export function MovieDetailScreen({ movie, onBack, onSelectCharacter }: { movie:
         } 
       />
       <div className="relative h-[450px] md:h-[500px] lg:h-[600px] w-full overflow-hidden xl:max-w-7xl xl:mx-auto xl:rounded-b-3xl">
-        <img src={movie.posterUrl} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+        <img src={movie.posterUrl} className="w-full h-full object-cover object-top" referrerPolicy="no-referrer" />
         <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/20 to-transparent" />
         <div className="absolute bottom-0 left-0 p-8 xl:p-12">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold italic mb-2">{movie.title}</h2>
@@ -47,6 +48,9 @@ export function MovieDetailScreen({ movie, onBack, onSelectCharacter }: { movie:
               <p className="text-xs md:text-sm font-bold text-center">{char.name}</p>
             </div>
           ))}
+        </div>
+        <div className="mt-8">
+          <FakeAdBanner type="casual" />
         </div>
       </section>
     </motion.main>
@@ -78,12 +82,37 @@ export function CharacterDetailScreen({ character, onBack, onSelectOutfit }: { c
           </div>
         ))}
       </div>
+      <div className="px-6 md:px-12 lg:px-24 mt-8 xl:max-w-7xl xl:mx-auto">
+        <FakeAdBanner type="luxury" />
+      </div>
     </motion.main>
   );
 }
 
-export function ProductDetailScreen({ outfit, onBack }: { outfit: Outfit, onBack: () => void }) {
-  const [added, setAdded] = useState(false);
+export function ProductDetailScreen({ outfit, onBack, onBoutique }: { outfit: Outfit, onBack: () => void, onBoutique?: () => void }) {
+  const isSaved = () => {
+    try {
+      const favs: Outfit[] = JSON.parse(localStorage.getItem('cinestyle_favourites') || '[]');
+      return favs.some(o => o.id === outfit.id);
+    } catch { return false; }
+  };
+
+  const [added, setAdded] = useState(isSaved());
+
+  const toggleFav = () => {
+    try {
+      const favs: Outfit[] = JSON.parse(localStorage.getItem('cinestyle_favourites') || '[]');
+      let updated: Outfit[];
+      if (favs.some(o => o.id === outfit.id)) {
+        updated = favs.filter(o => o.id !== outfit.id);
+        setAdded(false);
+      } else {
+        updated = [outfit, ...favs];
+        setAdded(true);
+      }
+      localStorage.setItem('cinestyle_favourites', JSON.stringify(updated));
+    } catch {}
+  };
 
   // Parse a base price number from the string (e.g. "₹299 – ₹799" -> 799)
   const extractPrice = (priceStr: string) => {
@@ -111,8 +140,8 @@ export function ProductDetailScreen({ outfit, onBack }: { outfit: Outfit, onBack
       <div className="px-6 md:px-12 lg:px-24 pt-4 md:flex md:gap-12 md:items-start lg:max-w-6xl lg:mx-auto">
         <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container mb-6 md:mb-0 md:w-1/2 lg:w-1/3 shrink-0 relative">
           <img src={outfit.imageUrl} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-          <div className="absolute top-4 right-4 bg-surface/80 backdrop-blur-md p-2 rounded-full cursor-pointer hover:bg-primary hover:text-on-primary transition-colors" onClick={() => { setAdded(true); setTimeout(() => setAdded(false), 2000); }}>
-             {added ? <Check className="w-5 h-5" /> : <Heart className="w-5 h-5" />}
+          <div className="absolute top-4 right-4 bg-surface/80 backdrop-blur-md p-2 rounded-full cursor-pointer hover:bg-primary hover:text-on-primary transition-colors" onClick={toggleFav}>
+             {added ? <Check className="w-5 h-5 text-emerald-400" /> : <Heart className={`w-5 h-5 ${added ? 'fill-primary' : ''}`} />}
           </div>
         </div>
         <div className="md:w-1/2 lg:w-2/3 md:pt-8">
@@ -156,6 +185,22 @@ export function ProductDetailScreen({ outfit, onBack }: { outfit: Outfit, onBack
               </a>
             ))}
           </div>
+          
+          {onBoutique && (
+            <div className="mt-6 p-4 bg-primary/5 border border-primary/20 rounded-xl">
+              <p className="text-xs text-on-surface-variant mb-3">Can't find it online? Get it custom-made!</p>
+              <button
+                onClick={onBoutique}
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold text-sm hover:opacity-90 transition-opacity"
+              >
+                <Scissors className="w-4 h-4" />
+                Get it Tailored by a Boutique
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="mt-8">
+          <FakeAdBanner type="tech" />
         </div>
       </div>
     </motion.main>

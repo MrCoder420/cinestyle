@@ -16,6 +16,7 @@ import { SearchScreen, WishlistScreen, ProfileScreen } from './components/Screen
 import { MovieDetailScreen, CharacterDetailScreen, ProductDetailScreen } from './components/DetailScreens';
 import { AdminPanelScreen } from './components/AdminPanelScreen';
 import { AiStylistScreen } from './components/AiStylistScreen';
+import { BoutiqueScreen } from './components/BoutiqueScreen';
 
 export default function App() {
   const [user, setUser] = useState<SupabaseUser | null>(null);
@@ -57,7 +58,7 @@ export default function App() {
   if (!isAuthReady) return <LoadingSpinner />;
 
   return (
-    <div className="min-h-screen bg-surface text-on-surface selection:bg-primary/30">
+    <div className="w-full min-h-screen bg-surface text-on-surface selection:bg-primary/30">
       <AnimatePresence mode="wait">
         {currentScreen === 'login' && <LoginScreen onLoginSuccess={() => navigateTo('home')} />}
         {currentScreen === 'home' && <HomeScreen user={user} onNavigate={navigateTo} />}
@@ -68,7 +69,10 @@ export default function App() {
           <CharacterDetailScreen character={selectedCharacter} onBack={() => navigateTo('movie-detail', selectedMovie)} onSelectOutfit={(o) => navigateTo('product-detail', o)} />
         )}
         {currentScreen === 'product-detail' && selectedOutfit && (
-          <ProductDetailScreen outfit={selectedOutfit} onBack={() => navigateTo('character-detail', selectedCharacter)} />
+          <ProductDetailScreen outfit={selectedOutfit} onBack={() => navigateTo('character-detail', selectedCharacter)} onBoutique={() => navigateTo('boutique')} />
+        )}
+        {currentScreen === 'boutique' && (
+          <BoutiqueScreen onBack={() => navigateTo('product-detail', selectedOutfit)} outfit={selectedOutfit} />
         )}
         {currentScreen === 'search' && <SearchScreen onNavigate={navigateTo} />}
         {currentScreen === 'wishlist' && <WishlistScreen onNavigate={navigateTo} />}
@@ -90,10 +94,10 @@ export default function App() {
                 key={item.id}
                 onClick={() => navigateTo(item.id as Screen)}
                 className={`flex-1 flex flex-col items-center gap-1 py-2 transition-all ${
-                  currentScreen === item.id ? 'text-primary scale-110' : 'text-on-surface-variant/60'
+                  currentScreen === item.id ? 'text-on-surface scale-110' : 'text-on-surface-variant opacity-60'
                 }`}
               >
-                <item.icon className={`w-6 h-6 ${currentScreen === item.id ? 'fill-primary/20' : ''}`} />
+                <item.icon className={`w-6 h-6 ${currentScreen === item.id ? 'fill-on-surface/10 stroke-[2.5px]' : 'stroke-2'}`} />
                 <span className="text-[10px] font-bold uppercase tracking-widest">{item.id}</span>
               </button>
             ))}

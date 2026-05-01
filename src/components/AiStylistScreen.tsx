@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Sparkles, Send, ArrowLeft, Loader2 } from 'lucide-react';
 import { Outfit } from '../types';
-import { PAGE_TRANSITION } from './Common';
+import { PAGE_TRANSITION, FakeAdBanner } from './Common';
 
 export function AiStylistScreen({ onBack, onSelectOutfit }: { onBack: () => void, onSelectOutfit: (o: Outfit) => void }) {
   const [prompt, setPrompt] = useState('');
@@ -19,7 +19,7 @@ export function AiStylistScreen({ onBack, onSelectOutfit }: { onBack: () => void
     setRecommendations([]);
 
     try {
-      const response = await fetch('http://localhost:3001/api/ai-stylist', {
+      const response = await fetch(`http://${window.location.hostname}:3001/api/ai-stylist`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt })
@@ -116,6 +116,8 @@ export function AiStylistScreen({ onBack, onSelectOutfit }: { onBack: () => void
             <p className="text-sm mt-2">Try searching for a different vibe or character!</p>
           </div>
         )}
+
+        <FakeAdBanner type="tech" />
       </div>
     </motion.main>
   );

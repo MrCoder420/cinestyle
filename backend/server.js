@@ -27,7 +27,7 @@ app.post('/api/ai-stylist', async (req, res) => {
     // 1. Fetch some context from the database to feed to Gemini
     const { data: outfits, error: dbError } = await supabase
       .from('outfits')
-      .select('id, name, category, price_str, ecommerce_link, characters(name, movies(title))');
+      .select('id, name, category, price_str, image_url, ecommerce_link, characters(name, movies(title))');
 
     if (dbError) throw dbError;
 
@@ -56,8 +56,18 @@ app.post('/api/ai-stylist', async (req, res) => {
     // Try to parse the JSON array of IDs
     const recommendedIds = JSON.parse(responseText.replace(/```json/g, '').replace(/```/g, '').trim());
 
-    // 3. Return the full outfit objects that match the recommended IDs
-    const recommendedOutfits = outfits.filter(o => recommendedIds.includes(o.id));
+    // 3. Return the full outfit objects mapped to frontend Outfit type
+    const recommendedOutfits = outfits
+      .filter(o => recommendedIds.includes(o.id))
+      .map(o => ({
+        id: o.id,
+        name: o.name,
+        category: o.category,
+        price: o.price_str || 'N/A',
+        imageUrl: o.image_url || '',
+        link: o.ecommerce_link || '',
+        characterId: o.characters?.id || ''
+      }));
 
     res.json({ recommendations: recommendedOutfits });
   } catch (error) {

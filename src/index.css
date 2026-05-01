@@ -1,35 +1,90 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
+:root {
+  --app-color-surface: #12121f;
+  --app-color-surface-container-lowest: #0d0d1a;
+  --app-color-surface-container-low: #1a1a28;
+  --app-color-surface-container: #1e1e2c;
+  --app-color-surface-container-high: #292937;
+  --app-color-surface-container-highest: #343342;
+  --app-color-surface-bright: #383847;
+  
+  --app-color-primary: #ffc66b;
+  --app-color-primary-container: #e8a838;
+  --app-color-on-primary-container: #5f3f00;
+  
+  --app-color-secondary: #ffb1c8;
+  --app-color-secondary-container: #7c2c4b;
+  --app-color-on-secondary-container: #ff9aba;
+  
+  --app-color-on-surface: #e3e0f4;
+  --app-color-on-surface-variant: #d5c4af;
+  
+  --app-color-outline-variant: #504535;
+}
+
+.light {
+  --app-color-surface: #faf9fd;
+  --app-color-surface-container-lowest: #ffffff;
+  --app-color-surface-container-low: #f5f4f8;
+  --app-color-surface-container: #efedf3;
+  --app-color-surface-container-high: #e9e7ef;
+  --app-color-surface-container-highest: #e3e2ea;
+  --app-color-surface-bright: #fdfcff;
+  
+  --app-color-primary: #a17000;
+  --app-color-primary-container: #ffe2a5;
+  --app-color-on-primary-container: #261900;
+  
+  --app-color-secondary: #9e3d62;
+  --app-color-secondary-container: #ffd9e5;
+  --app-color-on-secondary-container: #3f001c;
+  
+  --app-color-on-surface: #1a1b21;
+  --app-color-on-surface-variant: #49463e;
+  
+  --app-color-outline-variant: #7c776d;
+}
+
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Noto Serif", ui-serif, Georgia, serif;
 
-  --color-surface: #12121f;
-  --color-surface-container-lowest: #0d0d1a;
-  --color-surface-container-low: #1a1a28;
-  --color-surface-container: #1e1e2c;
-  --color-surface-container-high: #292937;
-  --color-surface-container-highest: #343342;
-  --color-surface-bright: #383847;
+  --color-surface: var(--app-color-surface);
+  --color-surface-container-lowest: var(--app-color-surface-container-lowest);
+  --color-surface-container-low: var(--app-color-surface-container-low);
+  --color-surface-container: var(--app-color-surface-container);
+  --color-surface-container-high: var(--app-color-surface-container-high);
+  --color-surface-container-highest: var(--app-color-surface-container-highest);
+  --color-surface-bright: var(--app-color-surface-bright);
   
-  --color-primary: #ffc66b;
-  --color-primary-container: #e8a838;
-  --color-on-primary-container: #5f3f00;
+  --color-primary: var(--app-color-primary);
+  --color-primary-container: var(--app-color-primary-container);
+  --color-on-primary-container: var(--app-color-on-primary-container);
   
-  --color-secondary: #ffb1c8;
-  --color-secondary-container: #7c2c4b;
-  --color-on-secondary-container: #ff9aba;
+  --color-secondary: var(--app-color-secondary);
+  --color-secondary-container: var(--app-color-secondary-container);
+  --color-on-secondary-container: var(--app-color-on-secondary-container);
   
-  --color-on-surface: #e3e0f4;
-  --color-on-surface-variant: #d5c4af;
+  --color-on-surface: var(--app-color-on-surface);
+  --color-on-surface-variant: var(--app-color-on-surface-variant);
   
-  --color-outline-variant: #504535;
+  --color-outline-variant: var(--app-color-outline-variant);
 }
 
 @layer base {
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
   body {
     @apply bg-surface text-on-surface font-sans antialiased;
+  }
+  #root {
+    width: 100%;
+    min-height: 100vh;
   }
 }
 
@@ -39,12 +94,12 @@
 
 .glass-card {
   backdrop-filter: blur(24px);
-  background: rgba(30, 30, 44, 0.7);
+  background: color-mix(in srgb, var(--app-color-surface-container) 70%, transparent);
 }
 
 .glass-nav {
   backdrop-filter: blur(20px);
-  background: rgba(56, 56, 71, 0.8);
+  background: color-mix(in srgb, var(--app-color-surface-container-highest) 85%, transparent);
 }
 
 .no-scrollbar::-webkit-scrollbar {
